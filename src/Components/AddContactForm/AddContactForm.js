@@ -5,7 +5,7 @@ const AddContactForm = ({ formSubmit, inputValue, name, number }) => {
   return (
     <form onSubmit={formSubmit}>
       <p>Name</p>
-      <input type="text" onChange={inputValue} value={name} name="name"></input>
+      <input type="text" onChange={inputValue} value={name} name="name" />
       <p>Number</p>
       <input
         type="text"

@@ -17,17 +17,11 @@ class App extends Component {
     number: "",
   };
 
-  isContact = () => {
-    if (this.state.contacts.find((el) => el.name === this.state.name)) {
-      return true;
-    }
-  };
 
   inputValue = (e) => {
     const target = e.target.name;
     const value = e.target.value;
     this.setState({ [target]: value });
-    console.log(e.target.value);
   };
 
   formSubmit = (e) => {
@@ -37,7 +31,13 @@ class App extends Component {
       number: this.state.number,
       id: uuidv4(),
     };
-    if (this.isContact() === true) {
+    if (this.state.name === "" || this.state.number === "" ) {
+      alert("Fill the form");
+      return;
+    }
+
+
+    if (this.state.contacts.find((el) => el.name === this.state.name)) {
       alert(`${this.state.name} is already in contact`);
       this.setState({
         name: "",
@@ -45,7 +45,6 @@ class App extends Component {
       });
       return;
     } else {
-      console.log("hey");
       this.setState({ contacts: [...this.state.contacts, contact] });
     }
     this.setState({

@@ -10,7 +10,7 @@ const Filter = ({ inputValue,  }) => {
         onInput={inputValue}
         name="filter"
 
-      ></input>
+      />
     </>
   );
   Filter.propTypes ={
